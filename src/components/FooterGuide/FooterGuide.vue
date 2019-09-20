@@ -38,53 +38,56 @@ export default {
 }
 </script>
 <style lang='stylus' rel='stylesheet/stylus'>
-.tabBar-wrap
+.fotter
   position fixed
+  z-index 11
   left 0
   bottom 0
-  background #ffffff
-  width 100%
-  height 1.30667rem
+  width 750px
+  height 97px
   border-top 1px solid #d9d9d9
-  display flex
-  align-items center
-  justify-content space-around
-  .m-tabBar
-    position relative
-    text-align center
-  .u-icon
-    width 40px
-    height 40px
-    display inline-block
-    vertical-align middle
-    background-image url('https://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png') // yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png)
-    background-repeat no-repeat
-    transform translate3d(0, 0, 0)
-  .u-icon-tabBar-index
-    background-position 0 -3.33333rem
-  .u-icon-tabBar-cate
-    background-position 0 -2rem
-  .u-icon-tabBar-topic
-    background-position 0 -4.66667rem
-  .u-icon-tabBar-cart
-    background-position 0 -0.66667rem
-  .u-icon-tabBar-ucenter
-    background-position 0 -6rem
-  .on-index
-    background-position 0 -2.66667rem
-  .on-cate
-    background-position 0 -1.33333rem
-  .on-topic
-    background-position 0 -300px
-  .on-cart
-    background-position 0 0
-  .on-ucenter
-    background-position 0 -5.3333rem
-  .text
-    display block
-    font-size 0.32rem
-    margin-top 5px
-    transform translate3d(0, 0, 0)
-  .on-text
-    color #b4282d
+  background #ffffff
+  .tabBar-wrap
+    height 97px
+    display flex
+    align-items center
+    justify-content space-around
+    .m-tabBar
+      position relative
+      text-align center
+    .u-icon
+      width 40px
+      height 40px
+      display inline-block
+      vertical-align middle
+      background-image url('https://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png') // yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png)
+      background-repeat no-repeat
+      transform translate3d(0, 0, 0)
+    .u-icon-tabBar-index
+      background-position 0 -3.33333rem
+    .u-icon-tabBar-cate
+      background-position 0 -2rem
+    .u-icon-tabBar-topic
+      background-position 0 -4.66667rem
+    .u-icon-tabBar-cart
+      background-position 0 -0.66667rem
+    .u-icon-tabBar-ucenter
+      background-position 0 -6rem
+    .on-index
+      background-position 0 -2.66667rem
+    .on-cate
+      background-position 0 -1.33333rem
+    .on-topic
+      background-position 0 -300px
+    .on-cart
+      background-position 0 0
+    .on-ucenter
+      background-position 0 -5.3333rem
+    .text
+      display block
+      font-size 0.32rem
+      margin-top 5px
+      transform translate3d(0, 0, 0)
+    .on-text
+      color #b4282d
 </style>
