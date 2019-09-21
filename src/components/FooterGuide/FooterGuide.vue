@@ -53,8 +53,10 @@ export default {
     align-items center
     justify-content space-around
     .m-tabBar
+      display block
       position relative
       text-align center
+      height 78px
     .u-icon
       width 40px
       height 40px

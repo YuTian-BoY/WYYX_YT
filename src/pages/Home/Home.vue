@@ -10,39 +10,15 @@
             </i>
             <span class="placeholder">搜索商品, 共22643款好物</span>
           </div>
-          <div class="loginBtn">登录</div>
+          <div class="loginBtn" @click="login('/login')">登录</div>
         </div>
       </div>
       <div class="tabWrap">
         <div class="m-tabs">
           <div class="inner">
             <ul class="list">
-              <li class="tab active">
-                <span class="txt">推荐</span>
-              </li>
-              <li class="tab">
-                <span class="txt">居家生活</span>
-              </li>
-              <li class="tab">
-                <span class="txt">服饰鞋包</span>
-              </li>
-              <li class="tab">
-                <span class="txt">美食酒水</span>
-              </li>
-              <li class="tab">
-                <span class="txt">个护清洁</span>
-              </li>
-              <li class="tab">
-                <span class="txt">母婴亲子</span>
-              </li>
-              <li class="tab">
-                <span class="txt">运动旅游</span>
-              </li>
-              <li class="tab">
-                <span class="txt">数码家电</span>
-              </li>
-              <li class="tab">
-                <span class="txt">全球特色</span>
+              <li class="tab" @click="goto(index)" v-for="(tab, index) in tabs" :key="index">
+                <span class="txt" :class="{'active':index==tabList}">{{tab.tltle}}</span>
               </li>
             </ul>
           </div>
@@ -54,15 +30,13 @@
         <div class="tabbottom">
           <div class="tabAlter" v-show="!isOk">全部频道</div>
           <div class="tabList" v-show="!isOk">
-            <div class="tab active">推荐</div>
-            <div class="tab">居家生活</div>
-            <div class="tab">服饰鞋包</div>
-            <div class="tab">美食酒水</div>
-            <div class="tab">个护清洁</div>
-            <div class="tab">母婴亲子</div>
-            <div class="tab">运动旅游</div>
-            <div class="tab">数码家电</div>
-            <div class="tab">全球特色</div>
+            <div
+              class="tab"
+              @click="goto(index)"
+              v-for="(tab, index) in tabs"
+              :key="index"
+              :class="{'active':index==tabList}"
+            >{{tab.tltle}}</div>
           </div>
           <div class="mask" @click="isOk=!isOk" v-show="!isOk"></div>
         </div>
@@ -267,15 +241,25 @@
           <!-- 新人专享 -->
           <div class="m-indexFloor">
             <div class="floorHeader">
-              <span class="txtHeader">
-                新人专享礼
-              </span>
+              <span class="txtHeader">新人专享礼</span>
             </div>
             <div class="floorfooter">
               <ul class="floorContent">
-                <li class="left"></li>
-                <li></li>
-                <li></li>
+                <li class="floorContent-left">
+                  <span class="name">新人专享礼包</span>
+                  <span class="imgWrap">
+                    <img
+                      class="simg"
+                      src="https://yanxuan.nosdn.127.net/ba4d635ec94ad95b28bfab6500900659.png"
+                      alt
+                    />
+                  </span>
+                  <span class="animate"></span>
+                </li>
+                <li class="floorContent-right">
+                  <span class="floorContent-rightTop"></span>
+                  <span class="floorContent-rightBottom"></span>
+                </li>
               </ul>
             </div>
           </div>
@@ -293,7 +277,47 @@ import BScroll from 'better-scroll'
 export default {
   data() {
     return {
+      tabList: 0,
+      tabs: [
+        {
+          tltle: '推荐'
+        },
+        {
+          tltle: '居家生活'
+        },
+        {
+          tltle: '服饰鞋包'
+        },
+        {
+          tltle: '美食酒水'
+        },
+        {
+          tltle: '个护清洁'
+        },
+        {
+          tltle: '母婴亲子'
+        },
+        {
+          tltle: '运动旅游'
+        },
+        {
+          tltle: '数码家电'
+        },
+        {
+          tltle: '全球特色'
+        }
+      ],
       isOk: 'false'
+    }
+  },
+  methods: {
+    // 点击列表添加样式
+    goto(index) {
+      this.tabList = index
+    },
+    // 点击跳转login界面
+    login(path){
+      this.$router.push(path)
     }
   },
   mounted() {
@@ -413,6 +437,17 @@ export default {
                 font-size 0.37333rem
                 color #333
                 text-align center
+                position relative
+              .active
+                color #ab2b2b
+              .active::after
+                content ' '
+                position absolute
+                left 0
+                bottom 0
+                width 100%
+                height 4px
+                background-color #b4282d
       .tabbottom
         z-index 9
         .tabAlter
@@ -444,8 +479,11 @@ export default {
             display inline-block
             text-align center
             line-height 54px
-            border-radius 0.05333rem
+            border-radius 8px
             z-index 9
+          .active
+            border 1px solid #b4282d
+            color #b4282d
         .mask
           width 100%
           height 100%
@@ -480,9 +518,12 @@ export default {
     position relative
     top 147.98px
     left 0
+    padding-top 30px
     .swiper-container
       position relative
       z-index 0
+      width 100%
+      height 370px
     .swiper-wrapper
       .swiper-slide
         .imgs
@@ -581,17 +622,17 @@ export default {
         position relative
         .txtHeader::before
           content ''
-          top .6rem
-          width .32rem
-          height .04rem
+          top 0.6rem
+          width 0.32rem
+          height 0.04rem
           background #333
           position absolute
           left -40px
         .txtHeader::after
           content ''
-          top .6rem
-          width .32rem
-          height .04rem
+          top 0.6rem
+          width 0.32rem
+          height 0.04rem
           background #333
           position absolute
           left 170px
@@ -599,15 +640,68 @@ export default {
         width 750px
         height 438px
         box-sizing border-box
-        background-color #ff9700
         padding-left 30px
         .floorContent
-        width 100%
-        height 100%
-          .left{
+          width 750px
+          height 438px
+          display flex
+          .floorContent-left
             display inline-block
             width 343px
             height 434px
+            margin-right 4px
             background-color #f9e9cf
-          }
+            text-align center
+            .name
+              display inline-block
+              width 343px
+              height 78px
+              font-size 32px
+              padding 30px 120px 0 30px
+            .imgWrap
+              display block
+              width 258px
+              height 257px
+              margin 37px auto
+              .simg
+                display inline-block
+                width 100%
+                height 100%
+            .animate
+              display inline-block
+              width 30px
+              height 20px
+              background-image url('https://yanxuan.nosdn.127.net/3f7e731c6650bc1770589c78bd5a18b7.png') // yanxuan.nosdn.127.net/3f7e731c6650bc1770589c78bd5a18b7.png)
+              background-repeat no-repeat
+              background-size 100% 100%
+              position absolute
+              left 235px
+              bottom 114px
+              animation carousel 1s linear infinite
+              @keyframes carousel
+                0%
+                  background-image url('https://yanxuan.nosdn.127.net/3f7e731c6650bc1770589c78bd5a18b7.png') // yanxuan.nosdn.127.net/3f7e731c6650bc1770589c78bd5a18b7.png)
+                50%
+                  background-image url('https://yanxuan.nosdn.127.net/d635ac1cf1b2bde41e96ea43dacf0cfc.png') // yanxuan.nosdn.127.net/d635ac1cf1b2bde41e96ea43dacf0cfc.png)
+                100%
+                  background-image url('https://yanxuan.nosdn.127.net/bf881c47a51af89a723d97d58b2bca9e.png') // yanxuan.nosdn.127.net/bf881c47a51af89a723d97d58b2bca9e.png)
+          .floorContent-right
+            display inline-block
+            width 343px
+            height 434px
+            background-color pink
+            .floorContent-rightTop
+              width 343px
+              height 215px
+              margin 0 4px 0 0
+              padding 20px 0 0 30px
+              display inline-block
+              background-color red
+            .floorContent-rightBottom
+              width 343px
+              height 215px
+              margin 0 4px 4px 0
+              padding 20px 0 0 30px
+              display inline-block
+              background-color blue
 </style>
