@@ -38,7 +38,6 @@
               :class="{'active':index==tabList}"
             >{{tab.tltle}}</div>
           </div>
-          <div class="mask" @click="isOk=!isOk" v-show="!isOk"></div>
         </div>
       </div>
     </div>
@@ -63,14 +62,14 @@
             <div class="swiper-slide">
               <img
                 class="imgs"
-                src="https://yanxuan.nosdn.127.net/ccfde8af22184921682d049b00b34be2.jpg?imageView&quality=75&thumbnail=750x0"
+                src="https://yanxuan.nosdn.127.net/fbd60740f7ebd7bf7702c89c11212521.jpg?imageView&quality=75&thumbnail=750x0"
                 alt
               />
             </div>
             <div class="swiper-slide">
               <img
                 class="imgs"
-                src="https://yanxuan.nosdn.127.net/9c75dabb86e08cffcd0b4c95b4035b57.jpg?imageView&quality=75&thumbnail=750x0"
+                src="https://yanxuan.nosdn.127.net/ff72739491b93d443ec623dc44c65d8e.jpg?imageView&quality=75&thumbnail=750x0"
                 alt
               />
             </div>
@@ -316,7 +315,7 @@ export default {
       this.tabList = index
     },
     // 点击跳转login界面
-    login(path){
+    login(path) {
       this.$router.push(path)
     }
   },

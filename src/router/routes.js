@@ -11,30 +11,54 @@ const ShoppingCart = () => import('../pages/ShoppingCart/ShoppingCart.vue')
 const Personsge = () => import('../pages/Personsge/Personsge.vue')
 // 引入登录路由组件
 const Login = () => import('../pages/Login/Login.vue')
+// 引入手机号登录界面
+const Iphone = () => import('../pages/Iphone/Iphone.vue')
 // 配置路由
 export default [{
     path: '/home',
-    component: Home
+    component: Home,
+    meta: {
+      isShow: true
+    }
   },
   {
     path: '/classify',
-    component: Classify
+    component: Classify,
+    meta: {
+      isShow: true
+    }
   },
   {
     path: '/konw',
-    component: Konw
+    component: Konw,
+    meta: {
+      isShow: true
+    }
   },
   {
     path: '/shoppingCart',
-    component: ShoppingCart
+    component: ShoppingCart,
+    meta: {
+      isShow: true
+    }
   },
   {
     path: '/personsge',
-    component: Personsge
+    component: Personsge,
+    meta: {
+      isShow: true
+    }
   },
   {
     path: '/login',
-    component: Login
+    component: Login,
+    meta: {
+      isShow: false
+    }
+  },
+  {
+    path: '/iphone',
+    component: Iphone
   },
   {
     path: '/',

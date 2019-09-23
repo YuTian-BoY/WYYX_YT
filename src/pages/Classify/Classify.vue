@@ -12,7 +12,13 @@
       <!-- 左侧列表 -->
       <div class="content-lift">
         <ul class="list">
-          <li class="item" @click="goto(index)" v-for="(item, index) in items" :key="index" :class="{'active':index==isActive}"> {{item.title}} </li>
+          <li
+            class="item"
+            @click="goto(index)"
+            v-for="(item, index) in items"
+            :key="index"
+            :class="{'active':index==isActive}"
+          >{{item.title}}</li>
         </ul>
       </div>
       <!-- 右侧内容 -->
@@ -45,55 +51,82 @@
               <ul class="bottom-content">
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/71a5f1a0299e278f8193c193d8b7d1e4.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/71a5f1a0299e278f8193c193d8b7d1e4.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">明星商品</span>
                 </li>
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/a91deb0e8592ea6c5e402d71eadc6a64.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/a91deb0e8592ea6c5e402d71eadc6a64.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">精选美食99选6</span>
                 </li>
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/c117ea2f1c4d978eb1f310d6d9ec3226.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/c117ea2f1c4d978eb1f310d6d9ec3226.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">员工精选好货</span>
                 </li>
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/3e52cf9e7db8ff6eb442b83043ae44ce.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/3e52cf9e7db8ff6eb442b83043ae44ce.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">男装季末特惠</span>
                 </li>
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/fcbe22542c091f31d6a22a7e921edc8f.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/fcbe22542c091f31d6a22a7e921edc8f.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">女装季末特惠</span>
                 </li>
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/c64660221bf28ededa6ba330dc5ddbf5.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/c64660221bf28ededa6ba330dc5ddbf5.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">秋季换新好物</span>
                 </li>
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/0cb19987ddd873c693272c60352ba6a7.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/0cb19987ddd873c693272c60352ba6a7.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">50元幸福好物</span>
                 </li>
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/33fbf26f90d8b8a470cfe4fcfc2f5fe8.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/33fbf26f90d8b8a470cfe4fcfc2f5fe8.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">家装好物推荐</span>
                 </li>
                 <li class="bottom-list">
                   <span class="list-img">
-                    <img src="https://yanxuan.nosdn.127.net/cda4a56526a230055bea8221a6b7ab11.png?imageView&quality=85&thumbnail=144x144" alt="">
+                    <img
+                      src="https://yanxuan.nosdn.127.net/cda4a56526a230055bea8221a6b7ab11.png?imageView&quality=85&thumbnail=144x144"
+                      alt
+                    />
                   </span>
                   <span class="list-name">999+好评</span>
                 </li>
@@ -114,50 +147,50 @@ import BScroll from 'better-scroll'
 export default {
   data() {
     return {
-      isActive:0,
-      items:[
+      isActive: 0,
+      items: [
         {
-          title:'推荐专区'
+          title: '推荐专区'
         },
         {
-          title:'换季专区'
+          title: '换季专区'
         },
         {
-          title:'爆品专区'
+          title: '爆品专区'
         },
         {
-          title:'新品专区'
+          title: '新品专区'
         },
         {
-          title:'居家生活'
+          title: '居家生活'
         },
         {
-          title:'服饰鞋包'
+          title: '服饰鞋包'
         },
         {
-          title:'美食酒水'
+          title: '美食酒水'
         },
         {
-          title:'个护清洁'
+          title: '个护清洁'
         },
         {
-          title:'母婴亲子'
+          title: '母婴亲子'
         },
         {
-          title:'运动旅行'
+          title: '运动旅行'
         },
         {
-          title:'数码家电'
+          title: '数码家电'
         },
         {
-          title:'全球特色'
-        },
-        ]
+          title: '全球特色'
+        }
+      ]
     }
   },
   methods: {
-    goto(index){
-      this.isActive=index
+    goto(index) {
+      this.isActive = index
     }
   },
   mounted() {
@@ -171,11 +204,11 @@ export default {
     })
     var mySwiper = new Swiper('.swiper-container', {
       loop: true, // 循环模式选项
-      // autoplay: {
-      //   // 自动轮播
-      //   delay: 3000,
-      //   stopOnLastSlide: false
-      // },
+      autoplay: {
+        // 自动轮播
+        delay: 6000,
+        stopOnLastSlide: false
+      },
       // 如果需要分页器
       pagination: {
         el: '.swiper-pagination'
@@ -245,13 +278,13 @@ export default {
         .active
           color #ab2b2b
         .active::before
-          content: ' '
-          position: absolute
-          top: 0
-          left: 0
-          bottom: 0
-          width: .08rem
-          background-color: #ab2b2b
+          content ' '
+          position absolute
+          top 0
+          left 0
+          bottom 0
+          width 0.08rem
+          background-color #ab2b2b
     .content-right
       width 588px
       height 1148px
@@ -311,8 +344,6 @@ export default {
                   font-size 24px
                   text-align center
                   vertical-align top
-              .bottom-list:nth-child(3)
-              .bottom-list:nth-child(6)
-              .bottom-list:nth-child(9)
+              .bottom-list:nth-child(3), .bottom-list:nth-child(6), .bottom-list:nth-child(9)
                 margin-right 0
 </style>
