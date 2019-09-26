@@ -3,6 +3,8 @@
 const Home = () => import('../pages/Home/Home.vue')
 // 引入分类路由组件
 const Classify = () => import('../pages/Classify/Classify.vue')
+// 分类子路由
+const ShopList = () => import('../pages/ShopList/ShopList.vue')
 // 引入识图路由组件
 const Konw = () => import('../pages/Know/Konw.vue')
 // 引入购物车路由组件
@@ -13,6 +15,8 @@ const Personsge = () => import('../pages/Personsge/Personsge.vue')
 const Login = () => import('../pages/Login/Login.vue')
 // 引入手机号登录界面
 const Iphone = () => import('../pages/Iphone/Iphone.vue')
+// 引入搜索界面路由
+const Search = () => import('../pages/Search/Search.vue')
 // 配置路由
 export default [{
     path: '/home',
@@ -22,8 +26,17 @@ export default [{
     }
   },
   {
+
     path: '/classify',
     component: Classify,
+    children: [{
+      name: 'ShopList',
+      path: '/classify/shopList',
+      component: ShopList,
+      meta: {
+        isShow: true
+      }
+    }],
     meta: {
       isShow: true
     }
@@ -59,6 +72,10 @@ export default [{
   {
     path: '/iphone',
     component: Iphone
+  },
+  {
+    path: '/search',
+    component: Search
   },
   {
     path: '/',

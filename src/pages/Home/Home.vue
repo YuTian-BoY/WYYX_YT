@@ -8,7 +8,7 @@
             <i class="icon">
               <img src="../../../static/imags/earch.png" alt />
             </i>
-            <span class="placeholder">搜索商品, 共22643款好物</span>
+            <span class="placeholder" @click="search('/search')">搜索商品, 共22643款好物</span>
           </div>
           <div class="loginBtn" @click="login('/login')">登录</div>
         </div>
@@ -317,6 +317,10 @@ export default {
     // 点击跳转login界面
     login(path) {
       this.$router.push(path)
+    },
+    // 点击跳转搜索界面
+    search(path) {
+      this.$router.push(path)
     }
   },
   mounted() {
@@ -330,11 +334,11 @@ export default {
     })
     var mySwiper = new Swiper('.swiper-container', {
       loop: true, // 循环模式选项
-      // autoplay: {
-      //   // 自动轮播
-      //   delay: 3000,
-      //   stopOnLastSlide: false
-      // },
+      autoplay: {
+        // 自动轮播
+        delay: 3000,
+        stopOnLastSlide: false
+      },
       // 如果需要分页器
       pagination: {
         el: '.swiper-pagination'
@@ -425,7 +429,7 @@ export default {
             display flex
             justify-content space-around
             box-sizing border-box
-            width 1460px
+            width 1459px
             height 60px
             padding-left 30px
             .tab
@@ -517,7 +521,6 @@ export default {
     position relative
     top 147.98px
     left 0
-    padding-top 30px
     .swiper-container
       position relative
       z-index 0

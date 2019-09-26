@@ -31,6 +31,7 @@ export default {
     goto(path) {
       // 不带记录
       this.$router.replace(path)
+      this.$store.dispatch('getShops')
       // 带记录
       // this.$roter.push()
     }

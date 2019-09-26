@@ -1,19 +1,12 @@
 <template>
   <!-- 登录头部 -->
   <div class="hasHd">
-    <div class="login-header">
-      <div class="header-content">
-        <div class="row" @click="$router.back()"></div>
-        <div class="logo">
-          <div class="logo-img"></div>
-        </div>
-        <div class="search-shopping">
-          <span class="search"></span>
-          <span class="shopping"></span>
-        </div>
+    <Header>
+      <div class="logo" slot="logo-Img">
+        <div class="logo-img"></div>
       </div>
-    </div>
-    <div class="login-content" v-show="isOk" >
+    </Header>
+    <div class="login-content">
       <div class="content">
         <div class="login-logoimg">
           <div class="logoing"></div>
@@ -48,8 +41,6 @@
         </div>
       </div>
     </div>
-    <!-- 手机号码界面 -->
-    <div @click="isOk=!isOk" v-show="isOk">这里是手机登录</div>
   </div>
 </template>
 <script>
@@ -67,60 +58,6 @@ export default {
 .hasHd
   width 750px
   height 1334px
-  // 头部css
-  .login-header
-    width 100%
-    height 88px
-    background-color #fff
-    .header-content
-      width 750px
-      height 88px
-      padding 0 16px 0 24px
-      display flex
-      position relative
-      justify-content space-between
-      align-items center
-      .row
-        width 48px
-        height 48px
-        background-image url('https://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/hd-s9f33319f5a-b1aa4c35e6.png')
-        background-position 0 -70px
-        background-repeat no-repeat
-        background-size 2.29333rem 5.6rem
-      .logo
-        width 172px
-        height 54px
-        position absolute
-        top 0
-        right 0
-        bottom 0
-        left 0
-        margin auto
-        .logo-img
-          display inline-block
-          vertical-align middle
-          width 172px
-          height 54px
-          background-image url('https://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/hd-s9f33319f5a-b1aa4c35e6.png')
-          background-position 0 -1.70667rem
-          background-repeat no-repeat
-      .search-shopping
-        width 144px
-        height 64px
-        display flex
-        justify-content space-between
-        .search
-          width 64px
-          height 64px
-          background-image url('https://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/hd-s9f33319f5a-b1aa4c35e6.png')
-          background-position 0 -4.74667rem
-          background-repeat no-repeat
-        .shopping
-          width 64px
-          height 64px
-          background-image url('https://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/hd-s9f33319f5a-b1aa4c35e6.png')
-          background-position 0 0
-          background-repeat no-repeat
   .login-content
     width 100%
     height 1246px
