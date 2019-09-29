@@ -28,6 +28,8 @@ export default {
   width 100%
   height 88px
   background-color #fafafa
+  position relative
+  z-index 10
   .header-content
     width 750px
     height 88px

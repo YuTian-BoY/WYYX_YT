@@ -2,11 +2,15 @@
 
 // 引入常量名----mutation的typse
 import {
-  RECEIVE_SHOPS
+  RECEIVE_SHOPS,
+  RECEIVE_KONCONTENT
 } from './muntation-types.js'
 export default {
   // 更新state中的商品信息
   [RECEIVE_SHOPS](state, shops) {
     state.shops = shops
+  },
+  [RECEIVE_KONCONTENT](state, konContent) {
+    state.konContent = konContent
   }
 }

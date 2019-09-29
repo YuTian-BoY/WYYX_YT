@@ -23,6 +23,30 @@
         </ul>
       </div>
     </div>
+    <div class="m-main-content">
+      <div class="BScroll-content">
+        <div class="main-banner" v-if="konContent">
+          <div class="banner-list">
+            <img class="banner-img" v-lazy="konContent[0].ad.picUrl" />
+          </div>
+        </div>
+        <div class="banner-lists">
+          <span class="title">{{konContent[0].topics[0].title}}</span>
+          <img class="banner-img" v-lazy="konContent[0].topics[0].picUrl" />
+          <span class="txt">{{konContent[0].topics[0].readCount}}人看过</span>
+        </div>
+        <div class="main-banner" v-if="konContent">
+          <div class="banner-list">
+            <img class="banner-img" v-lazy="konContent[0].ad.picUrl" />
+          </div>
+        </div>
+        <div class="banner-lists">
+          <span class="title">{{konContent[0].topics[0].title}}</span>
+          <img class="banner-img" v-lazy="konContent[0].topics[0].picUrl" />
+          <span class="txt">{{konContent[0].topics[0].readCount}}人看过</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -31,6 +55,8 @@ import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.css'
 // 引入Bscroll 滑动库
 import BScroll from 'better-scroll'
+// 引入vuex
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -47,11 +73,19 @@ export default {
       isOk: 'true'
     }
   },
-  mounted() {
+  async mounted() {
+    await this.$store.dispatch('getRecommendData')
     let uTab = new BScroll('.u-tab', {
       scrollX: true,
       click: true
     })
+    let mainContent = new BScroll('.m-main-content', {
+      scrollY: true,
+      click: true
+    })
+  },
+  computed: {
+    ...mapState(['konContent'])
   },
   methods: {
     onTo(index) {
@@ -71,6 +105,7 @@ export default {
   bottom 0
   left 0
   margin auto
+  z-index 10
   .header-tab
     width 320px
     height 100%
@@ -95,13 +130,16 @@ export default {
   background #fafafa
   border-bottom 2px solid #d9d9d9
   border-top 2px solid #d9d9d9
+  position relative
+  z-index 10
+  margin-bottom 20px
   .u-tab
-    height 92px
+    height 72px
     width 750px
     .u-tab-conent
       width 1000px
-      height 92px
-      line-height 92px
+      height 72px
+      line-height 72px
       text-align center
       .conent-list
         height 70px
@@ -115,5 +153,43 @@ export default {
         padding 0 8px
       .active
         color #B4282D
-        border-bottom .04rem solid #B4282D
+        border-bottom 0.04rem solid #B4282D
+.m-main-content
+  width 100%
+  height 1060px
+  box-sizing border-box
+  position absolute
+  .main-banner
+    width 750px
+    height 450px
+    box-sizing border-box
+    margin-bottom 20px
+    padding 35px 25px
+    background-color #fff
+    .banner-list
+      box-sizing border-box
+      width 700px
+      height 375px
+      .banner-img
+        width 100%
+        height 100%
+        border-radius 10px
+  .banner-lists
+    width 100%
+    height 100%
+    background-color #fff
+    padding 35px 25px
+    .title
+      font-size 36px
+      color #333
+      line-height 52px
+      margin -8px 0 16px
+      display inline-block
+    .banner-img
+      width 100%
+      height 100%
+      border-radius 10px
+    .txt
+      font-size 24px
+      color #999
 </style>

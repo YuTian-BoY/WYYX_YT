@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import 'lib-flexible/flexible'
+import VueLazyLoad from 'vue-lazyload'
 import App from './App'
 // 引入路由器 并注册
 import router from './router'
@@ -14,6 +15,9 @@ import store from './store'
 import Header from './components/Header/Header.vue'
 Vue.component('Header', Header)
 Vue.config.productionTip = false
+Vue.use(VueLazyLoad, {
+  loading: 'static/imags/wh.gif'
+})
 
 /* eslint-disable no-new */
 new Vue({

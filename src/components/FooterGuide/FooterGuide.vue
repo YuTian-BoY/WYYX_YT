@@ -17,7 +17,7 @@
         <i class="u-icon u-icon-tabBar-cart" :class="{'on-cart':$route.path==='/shoppingCart'}"></i>
         <span class="text" :class="{'on-text':$route.path==='/shoppingCart'}">购物车</span>
       </a>
-      <a class="m-tabBar on-ucenter" href="javascript:;" @click="goto('/personsge')">
+      <a class="m-tabBar on-ucenter" href="javascript:;" @click="goto('/login')">
         <i class="u-icon u-icon-tabBar-ucenter" :class="{'on-ucenter':$route.path==='/personsge'}"></i>
         <span class="text" :class="{'on-text':$route.path==='/personsge'}">个人</span>
       </a>

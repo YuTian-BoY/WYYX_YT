@@ -8,7 +8,7 @@
       </div>
     </div>
     <!-- 内容区 -->
-    <div class="content">
+    <div class="content" v-if="shops.categoryL1List">
       <!-- 左侧列表 -->
       <div class="content-lift">
         <ul class="list">
@@ -22,12 +22,12 @@
         </ul>
       </div>
       <!-- 右侧内容 -->
-      <div class="content-right">
+      <div class="content-right" v-if="shops.categoryL1List">
         <div class="content-bsc">
           <div class="right-content">
             <div class="header">
               <div class="swiper-container">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper" v-if="shops.categoryL1List">
                   <div
                     class="swiper-slide"
                     v-for="(aa, index) in shops.categoryL1List"
@@ -48,7 +48,7 @@
                   :key="index"
                 >
                   <span class="list-img">
-                    <img class="bannerImg" :src="list.bannerUrl" />
+                    <img class="bannerImg" v-lazy="list.bannerUrl" />
                   </span>
                   <span class="list-name">{{list.name}}</span>
                 </li>
@@ -116,12 +116,12 @@ export default {
   methods: {
     goto(index) {
       this.isActive = index
-      console.log(this.bannerImg)
-      console.log(this)
+      // console.log(this.bannerImg)
+      // console.log(this)
     }
   },
-  mounted() {
-    this.$store.dispatch('getShops')
+  async mounted() {
+    await this.$store.dispatch('getShops')
     let scrollContentLift = new BScroll('.content-lift', {
       scrollY: true,
       click: true
